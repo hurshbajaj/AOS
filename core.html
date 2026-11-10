@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="src/device-gate.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AOS — Core</title>
+    <meta name="theme-color" content="#000000">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23000'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23fff' stroke-width='6'/%3E%3Cellipse cx='50' cy='50' rx='46' ry='17' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-28 50 50)'/%3E%3C/svg%3E">
+    <link rel="preload" href="assets/fonts/AOSConsole-Black.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/AOSConsole-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/AOSConsole-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/board.css">
+    <link rel="stylesheet" href="styles/core.css">
+    <script type="module" src="src/core/main.js"></script>
+  </head>
+  <body class="core">
+    <canvas class="sky" data-sky aria-hidden="true"></canvas>
+
+    <header class="bar">
+      <button class="bar__back" type="button" data-back aria-label="Back to the deck">
+        <span aria-hidden="true">&#8592;</span> Deck
+      </button>
+      <p class="bar__mark">AOS <span>Core</span></p>
+      <div class="bar__right" data-who></div>
+    </header>
+
+    <main class="work">
+      <nav class="rail rail--left" aria-label="Consoles and scripts">
+        <section class="panel"><div class="panel__body" data-consoles></div></section>
+        <section class="panel"><div class="panel__body" data-scripts></div></section>
+      </nav>
+
+      <section class="panel panel--viewer" aria-label="Script"><div class="panel__body" data-viewer></div></section>
+
+      <aside class="rail rail--right">
+        <section class="panel panel--board" aria-label="Notification board" aria-live="polite"><div class="panel__body board" data-board></div></section>
+        <section class="panel panel--brief" aria-label="What these scripts do"><div class="panel__body" data-brief></div></section>
+      </aside>
+    </main>
+
+    <input class="hidden-file" data-file type="file" accept=".rs,.toml,text/plain" multiple hidden>
+
+    <noscript><p class="noscript">AOS Core needs JavaScript.</p></noscript>
+  </body>
+</html>

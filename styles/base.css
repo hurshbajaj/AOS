@@ -1,0 +1,223 @@
+:root {
+  --white: #ffffff;
+  --white-80: rgb(255 255 255 / 0.8);
+  --white-64: rgb(255 255 255 / 0.64);
+  --white-40: rgb(255 255 255 / 0.4);
+  --white-16: rgb(255 255 255 / 0.16);
+  --black: #000000;
+  --glass: rgb(0 0 0 / 0.55);
+  --shadow: 0 1px 14px rgb(0 0 0 / 0.6);
+  --edge: clamp(20px, 3.4vw, 52px);
+  --font: "AOS Console", "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --size-label: 0.8125rem;
+  --size-body: 1rem;
+  --size-lede: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+  --size-title: clamp(3rem, 1.6rem + 5.6vw, 6.5rem);
+  --size-hero: clamp(4rem, 1.4rem + 10.4vw, 10.5rem);
+  color-scheme: dark;
+}
+
+@property --sweep {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes sweep {
+  to { --sweep: 360deg; }
+}
+
+::selection {
+  background: rgb(255 255 255 / 0.26);
+  color: var(--white);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: rgb(255 255 255 / 0.26);
+  color: var(--white);
+  text-shadow: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--black);
+  overscroll-behavior: none;
+}
+
+body {
+  overflow: hidden;
+  color: var(--white);
+  font-family: var(--font);
+  font-size: var(--size-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+p,
+dl,
+dd,
+ol {
+  margin: 0;
+}
+
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.noscript {
+  position: fixed;
+  left: var(--edge);
+  bottom: var(--edge);
+  z-index: 50;
+}
+
+.ambient-mount {
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.ambient {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 50%;
+  background: rgb(0 0 0 / 0.42);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+.ambient:hover {
+  border-color: rgb(255 255 255 / 0.3);
+}
+
+.ambient:not(.is-muted):not(.is-blocked) {
+  border-color: rgb(255 255 255 / 0.55);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.18), 0 0 14px rgb(255 255 255 / 0.1);
+}
+
+.ambient__bars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 11px;
+}
+
+.ambient__bars i {
+  width: 2px;
+  height: 100%;
+  border-radius: 1px;
+  background: var(--white-64);
+  transform-origin: center;
+  animation: ambientbar 1.1s var(--ease-in-out) infinite alternate;
+}
+
+.ambient__bars i:nth-child(1) { animation-delay: -0.1s; }
+.ambient__bars i:nth-child(2) { animation-delay: -0.55s; }
+.ambient__bars i:nth-child(3) { animation-delay: -0.85s; }
+
+@keyframes ambientbar {
+  from { transform: scaleY(0.3); }
+  to { transform: scaleY(1); }
+}
+
+.ambient.is-muted .ambient__bars i {
+  animation: none;
+  transform: scaleY(0.18);
+  background: var(--white-40);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient__bars i {
+    animation: none;
+    transform: scaleY(0.55);
+  }
+}
+
+.ambient.is-blocked .ambient__bars i {
+  animation: none;
+  transform: scaleY(0.3);
+  background: var(--white-40);
+}
+
+.ambient.is-blocked {
+  animation: ambientnudge 2.6s var(--ease-out) infinite;
+}
+
+@keyframes ambientnudge {
+  0%, 70%, 100% { border-color: rgb(255 255 255 / 0.12); }
+  35% { border-color: rgb(255 255 255 / 0.42); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient.is-blocked {
+    animation: none;
+    border-color: rgb(255 255 255 / 0.35);
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(255 255 255 / 0.22) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.18);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 255 255 / 0.34);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

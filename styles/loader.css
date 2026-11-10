@@ -1,0 +1,52 @@
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 18px;
+  background: var(--black);
+  transition: opacity 700ms ease, visibility 0s linear 700ms;
+}
+
+.loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader__mark {
+  font-weight: 900;
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 4rem);
+  letter-spacing: -0.04em;
+}
+
+.loader__track {
+  width: min(240px, 60vw);
+  height: 1px;
+  overflow: hidden;
+  background: var(--white-16);
+}
+
+.loader__fill {
+  display: block;
+  height: 100%;
+  background: var(--white);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms linear;
+}
+
+.loader__status {
+  color: var(--white-64);
+  font-weight: 500;
+  font-size: var(--size-label);
+  font-variant-numeric: tabular-nums;
+}
+
+.loader.is-failed .loader__status {
+  max-width: 36ch;
+  color: var(--white);
+  text-align: center;
+}

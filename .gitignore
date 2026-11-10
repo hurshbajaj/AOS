@@ -1,0 +1,9 @@
+.venv/
+node_modules/
+blender/renders/
+__pycache__/
+.DS_Store
+scratch/
+.env
+/data/
+core/target/

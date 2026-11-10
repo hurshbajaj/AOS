@@ -1,0 +1,18 @@
+{
+  "name": "aos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "render": "\"${BLENDER:-/usr/bin/blender}\" -b blender/aos.blend --python blender/render.py -- --out blender/renders",
+    "encode": "python3 scripts/encode.py blender/renders",
+    "test": "node test/world.test.mjs && node test/strip.test.mjs && node test/filters.test.mjs && node test/tracking.test.mjs && node test/gestures.test.mjs && node test/ephemeris.test.mjs && node test/forecast.test.mjs && node test/catalogue.test.mjs && node test/llm.test.mjs && node test/profile.test.mjs && node test/accounts.test.mjs && node test/auth.test.mjs && node test/core.test.mjs && node test/scripts.test.mjs && node test/core-ui.test.mjs && node test/agent-scripts.test.mjs && node test/picker.test.mjs && node test/highlight.test.mjs",
+    "data": "node scripts/spaceweather.mjs",
+    "train": "node scripts/train-kp.mjs",
+    "models": "node scripts/models.mjs",
+    "core": "node scripts/core.mjs",
+    "test:forge": "node test/forge.test.mjs",
+    "test:examples": "node test/examples.test.mjs"
+  }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="src/device-gate.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AOS — Profile</title>
+    <meta name="theme-color" content="#000000">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23000'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23fff' stroke-width='6'/%3E%3Cellipse cx='50' cy='50' rx='46' ry='17' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-28 50 50)'/%3E%3C/svg%3E">
+    <link rel="preload" href="assets/fonts/AOSConsole-Black.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/AOSConsole-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/AOSConsole-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    <script type="module" src="src/profile/main.js"></script>
+  </head>
+  <body class="profile">
+    <canvas class="sky" data-sky aria-hidden="true"></canvas>
+
+    <header class="bar">
+      <button class="bar__back" type="button" data-back aria-label="Back to the deck">
+        <span aria-hidden="true">&#8592;</span> Deck
+      </button>
+      <p class="bar__mark">AOS <span>Profile</span></p>
+      <div class="bar__who" data-who></div>
+    </header>
+
+    <main class="sheet" data-sheet aria-live="polite">
+      <p class="sheet__waiting">Checking for a session…</p>
+    </main>
+
+    <noscript><p class="noscript">AOS needs JavaScript to sign you in.</p></noscript>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+[package]
+name = "aos-instance"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "The AOS wasm bundle: the engine plus whichever operator scripts this instance carries."
+[lib]
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+[dependencies]
+aos-core = { path = "../aos-core" }
+aos-sim = { path = "../aos-sim" }

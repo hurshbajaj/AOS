@@ -1,0 +1,162 @@
+
+.lost {
+  --panel: rgb(10 12 16 / 0.72);
+  --hair: rgb(255 255 255 / 0.1);
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sky {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+}
+
+.lost::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 38%, rgb(0 0 0 / 0) 38%, rgb(0 0 0 / 0.78) 100%);
+}
+
+.lost__frame {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0;
+  min-height: 100vh;
+  padding: 88px var(--edge) 48px;
+  text-align: center;
+  animation: lost-in 620ms var(--ease-out) both;
+}
+
+@keyframes lost-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.lost__code {
+  margin: 0;
+  font-size: clamp(5.5rem, 18vw, 11rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: rgb(255 255 255 / 0.07);
+  margin-bottom: -0.26em;
+  user-select: none;
+}
+
+.lost__title {
+  margin: 0;
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.lost__blurb {
+  max-width: 34rem;
+  margin: 12px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--white-64);
+}
+
+.lost__where {
+  padding: 1px 6px;
+  border: 1px solid var(--hair);
+  border-radius: 6px;
+  background: rgb(255 255 255 / 0.04);
+  color: var(--white);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8125em;
+  overflow-wrap: anywhere;
+}
+
+.lost__ways {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.lost__way {
+  padding: 9px 16px;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--white-64);
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, opacity 180ms ease;
+}
+
+.lost__way:hover {
+  border-color: rgb(255 255 255 / 0.22);
+  color: var(--white);
+}
+
+.lost__way--go {
+  border-color: transparent;
+  background: var(--white);
+  color: #000;
+  font-weight: 600;
+  opacity: 0.82;
+}
+
+.lost__way--go:hover {
+  border-color: transparent;
+  background: var(--white);
+  color: #000;
+  opacity: 1;
+}
+
+.lost__way:focus-visible {
+  outline: 1px solid var(--white-40);
+  outline-offset: 3px;
+}
+
+.lost__mark {
+  position: fixed;
+  left: var(--edge);
+  bottom: var(--edge);
+  z-index: 11;
+  margin: 0;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.3);
+  pointer-events: none;
+}
+
+.lost__mark span {
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgb(255 255 255 / 0.18);
+}
+
+@media (max-width: 30rem) {
+  .lost__mark span {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lost__frame {
+    animation: none;
+  }
+}
