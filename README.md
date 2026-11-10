@@ -224,7 +224,7 @@ The engine also keeps runaway scripts in check. If a script uses more than 6 ms 
 
 ## Accounts
 
-The profile page is the left-hand section of the deck. You don't need an account to use AOS; the console works without signing in. If you do sign in, though, your injected hazards and Sybil conversation history are saved to your account, and the status light in the wordmark turns green.
+The profile page is the left-hand section of the deck. You don't need an account to use AOS; the console works without signing in. If you do sign in, though, your injected hazards, Sybil conversation history etc. are saved to your account (indicated by the status light in the wordmark turning green). Our authentication system is however equipped with JWT-based secure session management, Google OAuth Verification, CSRF Prot. and so much more, hence it is highly advisable that you take a moment to set up an organizational acc. (Note: Sign in via Google may be temporarily disabled while the establishment undergoes Google's Application Verification Process - Standard Procedure)
 
 ![The sign-in gate](docs/shots/profile.png)
 
