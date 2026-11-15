@@ -1,0 +1,14 @@
+[Unit]
+Description=Cloudflare Tunnel (aos)
+After=network-online.target aos.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+ExecStart=__CLOUDFLARED__ tunnel --config /home/__USER__/.cloudflared/config.yml run aos
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

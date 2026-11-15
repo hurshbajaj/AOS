@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="src/device-gate.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AOS — No such heading</title>
+    <meta name="theme-color" content="#000000">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23000'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23fff' stroke-width='6'/%3E%3Cellipse cx='50' cy='50' rx='46' ry='17' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-28 50 50)'/%3E%3C/svg%3E">
+    <link rel="preload" href="assets/fonts/AOSConsole-Black.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/AOSConsole-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/lost.css">
+    <script type="module" src="src/lost/main.js"></script>
+  </head>
+  <body class="lost">
+    <canvas class="sky" data-sky aria-hidden="true"></canvas>
+
+    <main class="lost__frame">
+      <p class="lost__code" aria-hidden="true">404</p>
+      <h1 class="lost__title">No such heading</h1>
+      <p class="lost__blurb">
+        Nothing is tracked at <code class="lost__where" data-where>that address</code>. It was
+        either never here or it has since decayed out of orbit.
+      </p>
+      <nav class="lost__ways">
+        <a class="lost__way lost__way--go" href="/">Back to the deck</a>
+        <a class="lost__way" href="/console">Open the console</a>
+        <a class="lost__way" href="/profile">Profile</a>
+      </nav>
+    </main>
+
+    <p class="lost__mark" aria-hidden="true">AOS <span>Autonomous Orbital Sentinel</span></p>
+  </body>
+</html>

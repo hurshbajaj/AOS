@@ -1,0 +1,17 @@
+[Unit]
+Description=AOS Node server
+After=network.target
+
+[Service]
+Type=simple
+User=__USER__
+WorkingDirectory=/home/hursh/Proj/aos
+Environment=NODE_ENV=production
+ExecStart=__NODE__ scripts/serve.mjs
+Restart=always
+RestartSec=5
+StandardOutput=append:/home/hursh/Proj/aos/data/aos.log
+StandardError=append:/home/hursh/Proj/aos/data/aos.err.log
+
+[Install]
+WantedBy=multi-user.target

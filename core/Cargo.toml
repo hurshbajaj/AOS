@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = ["aos-sim", "aos-core", "aos-instance"]
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true

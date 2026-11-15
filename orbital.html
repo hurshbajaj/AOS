@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="src/device-gate.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AOS — Console</title>
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23000'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23fff' stroke-width='6'/%3E%3Cellipse cx='50' cy='50' rx='46' ry='17' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-28 50 50)'/%3E%3C/svg%3E">
+    <link rel="preload" href="assets/fonts/AOSConsole-Black.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/AOSConsole-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/AOSConsole-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/board.css">
+    <link rel="stylesheet" href="styles/loader.css">
+    <link rel="stylesheet" href="styles/orbital.css">
+    <script type="module" src="src/orbital/main.js"></script>
+  </head>
+  <body class="console">
+    <canvas class="globe" data-globe aria-label="Orbital network"></canvas>
+
+    <header class="bar">
+      <button class="bar__back" type="button" data-back aria-label="Back to the deck">
+        <span aria-hidden="true">&#8592;</span> Deck
+      </button>
+      <button class="bar__mark" type="button" data-home aria-label="Back to your consoles">AOS <span>Console</span></button>
+      <span class="saved" data-saved aria-live="polite"><span class="saved__dot" aria-hidden="true"></span>Saved</span>
+      <div class="bar__stats" data-stats></div>
+    </header>
+
+    <section class="stack" aria-label="Hazards in play">
+      <h2 class="stack__title">In play</h2>
+      <div class="stack__rail" data-stack></div>
+    </section>
+
+    <section class="board board--console" data-board aria-label="From your scripts" aria-live="polite" hidden></section>
+
+    <section class="controls" aria-label="Layers" data-controls></section>
+
+    <section class="motion" data-motion aria-label="Motion control">
+      <span class="ambient-mount" data-ambient-mount></span>
+      <button class="motion__toggle" type="button" data-motion-toggle aria-pressed="false">
+        <span class="motion__dot" aria-hidden="true"></span>
+        <span class="motion__name">Motion control</span>
+      </button>
+      <div class="motion__body" data-motion-body hidden>
+        <canvas class="motion__view" width="256" height="192" data-motion-view aria-hidden="true"></canvas>
+        <div class="motion__foot">
+          <p class="motion__status" data-motion-status role="status">Off</p>
+          <button class="motion__help" type="button" data-motion-help aria-expanded="false" aria-controls="motion-legend" aria-label="Gesture reference">
+            <span aria-hidden="true">&#183;&#183;&#183;</span>
+          </button>
+        </div>
+        <ul class="motion__legend" id="motion-legend" hidden>
+          <li><b>Palm</b> zoom in</li>
+          <li><b>Fist</b> zoom out</li>
+          <li><b>Thumb | Index</b> Glide that way</li>
+        </ul>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="side__panel" data-panel aria-live="polite"></div>
+      <div class="side__grip" data-grip role="separator" aria-orientation="horizontal" aria-label="Resize panels" tabindex="0">
+        <span class="side__grip-bar" aria-hidden="true"></span>
+      </div>
+      <div class="chat" data-chat>
+        <ul class="chat__log" data-chat-log></ul>
+        <form class="chat__form" data-chat-form>
+          <input class="chat__input" data-chat-input type="text" autocomplete="off" placeholder="Ask AOS, or inject a hazard…" aria-label="Message AOS">
+          <button class="chat__send" type="submit" aria-label="Send">&#8599;</button>
+        </form>
+      </div>
+    </aside>
+
+    <div class="loader" data-loader role="progressbar" aria-label="Opening the console" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <p class="loader__mark">AOS</p>
+      <span class="loader__track"><span class="loader__fill" data-loader-fill></span></span>
+      <p class="loader__status" data-loader-status>Opening the console</p>
+    </div>
+
+    <noscript><p class="noscript">AOS needs JavaScript to run the console.</p></noscript>
+  </body>
+</html>

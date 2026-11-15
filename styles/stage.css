@@ -1,0 +1,73 @@
+.stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--black);
+  container-type: size;
+}
+
+.stage__frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100cqw, 100cqh * 16 / 9);
+  height: max(100cqh, 100cqw * 9 / 16);
+  transform: translate(-50%, -50%);
+}
+
+.stage__still,
+.stage__ambient,
+.stage__clip {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--black);
+}
+
+.stage__still {
+  transition: opacity 420ms var(--ease-in-out);
+}
+
+.stage__still.is-dimmed {
+  opacity: 0;
+}
+
+.stage__ambient,
+.stage__clip {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.stage__ambient.is-live {
+  opacity: 1;
+}
+
+.stage__clip.is-live {
+  opacity: 1;
+}
+
+.stage__clip.is-leaving {
+  opacity: 0;
+  transition: opacity 160ms linear;
+}
+
+.stage__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgb(0 0 0 / 0.78) 0%, rgb(0 0 0 / 0.34) 30%, rgb(0 0 0 / 0) 58%),
+    linear-gradient(to right, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 46%),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 16%);
+}
+
+@media (max-aspect-ratio: 4 / 5) {
+  .stage__frame {
+    top: 40%;
+    width: 100cqw;
+    height: calc(100cqw * 9 / 16);
+  }
+}

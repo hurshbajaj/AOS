@@ -1,0 +1,13 @@
+[package]
+name = "aos-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "The AOS simulation engine and operator-script host, compiled to wasm."
+[lib]
+crate-type = ["cdylib", "rlib"]
+[dependencies]
+aos-sim = { path = "../aos-sim" }
+sgp4 = { version = "2", default-features = false, features = ["alloc", "std"] }
+[features]
+default = []
