@@ -1,5 +1,8 @@
 # AOS — Autonomous Orbital Sentinel
 
+> [!TIP]
+> **Audio Recommended:** Put on your headphones for the best experience while browsing the Live Deck at [AOS](https://aos.exun.co).
+
 An interactive orbital operations console that runs entirely in the browser. It brings together live satellite data, real-time space weather, and a trained model for forecasting solar storms. You can interact with an AI operator, control the camera using hand gestures, and use a Rust scripting layer to load your own physics models. The interface even features a custom typeface designed specifically for its readouts. No build step or installation required beyond Node.js.
 
 ![The deck](docs/shots/deck.png)
