@@ -45,6 +45,8 @@
 }
 
 .bar__back {
+  position: relative;
+  left: calc(clamp(18px, 1.8vw, 26px) - var(--edge));
   padding: 7px 13px;
   border: 1px solid var(--hair);
   border-radius: 999px;
@@ -66,6 +68,7 @@
 
 .bar__mark {
   margin: 0;
+  margin-left: calc(clamp(18px, 1.8vw, 26px) - var(--edge));
   font-size: 0.8125rem;
   font-weight: 900;
   letter-spacing: 0.08em;
