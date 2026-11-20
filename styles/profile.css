@@ -497,6 +497,10 @@
   gap: 12px;
 }
 
+.card--gate .form > .button--go {
+  margin-top: 10px;
+}
+
 .card--gate .gate__head {
   gap: 12px;
 }
